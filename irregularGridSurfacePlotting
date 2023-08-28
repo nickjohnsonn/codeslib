@@ -1,7 +1,7 @@
 # Import your dataset (if possible at CSV format with headers)
 # Install and load library "ggplot2"
-	install.packages("ggplot2")
-	library(ggplot2)
+install.packages("ggplot2")
+library(ggplot2)
 
 # If the name of your dataset is not df, which is normally the case. Duplicate your dataset to a new dataset "df"
 df = <Name of your dataset>
