@@ -1,4 +1,39 @@
-# Import your dataset (if possible at csv format with headers)
+# Import your dataset (if possible at CSV format with headers)
 # Install and load library "ggplot2"
-install.packages("ggplot2")
-library(ggplot2)
+	install.packages("ggplot2")
+	library(ggplot2)
+
+# If the name of your dataset is not df, which is normally the case. Duplicate your dataset to a new dataset "df"
+df = <Name of your dataset>
+
+# Let's assume "df" is your data set that contains elevation at certain coordinates
+# Store your column values in separate variables
+long = df$x
+lat = df$y
+elevation = df$z
+
+# Install and load library "akima" and "reshape2" for data interpolation
+install.packages("akima")
+install.packages("reshape2")
+library(akima)
+library(reshape2)
+
+# Interpolate your dataset 
+interp_df = with(df,interp(x = long, y = lat, z = elevation))
+
+# Note that "interp_df" has column headers x,y,z from the above command.
+final_df = melt(interp_df$z,na.rm = TRUE)
+
+# Change the header names
+# Note that the first two columns are not the original dataset, it is because of the melt() function that interpolated the elevation.
+names(final_df) <- c("x", "y", "elevation")
+
+# Add the columns to the data set through matrix manipulation
+final_df$long <- interp_df$x[final_df$x]
+final_df$lat <- interp_df$y[final_df$y]
+
+
+
+
+
+
