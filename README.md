@@ -1,2 +1,2 @@
 # codeslib
-Personal compilation of codes for different languages
+Compilation of notes for coding in different programming languages.
