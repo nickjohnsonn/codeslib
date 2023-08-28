@@ -1,0 +1,4 @@
+# Import your dataset (if possible at csv format with headers)
+# Install and load library "ggplot2"
+install.packages("ggplot2")
+library(ggplot2)
