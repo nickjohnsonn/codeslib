@@ -58,7 +58,9 @@ library(viridis)
 mapPlot2D = ggplot(data = final_df, aes(x = lat, y = long, z = elevation)) + geom_tile(aes(fill=elevation))
 
 # Updating the variable value and changing the color palette
-final_mapPlot2D = mapPlot2D + xlab("Latitude") + ylab("Longitude") + scale_fill_continuous(name = "Elevation (m)", low = "blue", high = "gray", trans = "reverse") + coord_fixed() + theme(plot.title = element_text(size = 25, face = "bold"), legend.title = element_text(size = 10), axis.text = element_text(size = 10), axis.title.x = element_text(size = 10, vjust = -0.5), axis.text.x = element_text(angle = 90), axis.title.y = element_text(size = 10, vjust = 0.2), legend.text = element_text(size = 10)) + scale_y_continuous(breaks = seq(18.37, 18.40, len = 30)) + scale_x_continuous(breaks = seq(122.11, 122.1230, len = 13))
+theme = theme(plot.title = element_text(size = 25, face = "bold"), legend.title = element_text(size = 10), axis.text = element_text(size = 10), axis.title.x = element_text(size = 10, vjust = -0.5), axis.text.x = element_text(angle = 90), axis.title.y = element_text(size = 10, vjust = 0.2), legend.text = element_text(size = 10))
+axesScales = scale_y_continuous(breaks = seq(18.37, 18.40, len = 30)) + scale_x_continuous(breaks = seq(122.11, 122.1230, len = 13))
+final_mapPlot2D = mapPlot2D + xlab("Latitude") + ylab("Longitude") + scale_fill_continuous(name = "Elevation (m)", low = "blue", high = "gray", trans = "reverse") + coord_fixed() + theme + axesScales
 
 # Plotting in 3D raytrace
 plot_gg(final_mapPlot2D, multicore = TRUE, raytrace = TRUE, width = 7, height = 4, scale = 300, windowsize = c(1400, 866), zoom = 0.6, phi = 30, theta = 30)
