@@ -1,1 +1,26 @@
+# Import your data set in the workspace as numerical matrix.
+# Tip: If your data is initially from excel, save the sheet to ".csv" and removing headers is recommended. 
+# Maintain the numerical (value) matrix for surface plotting.
+# Considering the data is saved as variable "matrix"
+# If not, you may save your data set to a variable by:
+matrix = <Name of your data set>;
 
+# create a dummy "x" and "y" variable from the size of your matrix
+[x,y] = meshgrid(1:size(matrix,2), 1:size(matrix,1));
+
+# Create surface plot with the matrix variable
+surf(x,y,matrix);
+
+# Smoothen the plot by interpolation of data
+# Create a variable that will hold the resolution factor
+# The resolution factor is variable depending on your requirement
+resolution = 128;
+
+# Increase the grid line interval by using linspace
+[x1 , y1] = meshgrid(linspace(1,size(matrix,2),resolution), linspace(1,size(matrix,1),resolution)); 
+
+# Save the interpolated data in variable "inter_matrix"
+inter_matrix = interp2(x,y,matrix,x1,y1,'spline');
+
+# Create surface plot with the interpolated matrix
+surf(x1,y1,inter_matrix);
