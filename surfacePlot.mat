@@ -11,6 +11,12 @@ matrix = <Name of your data set>;
 # Create surface plot with the matrix variable
 surf(x,y,matrix);
 
+# Reverse the z-axis level
+set(gca, 'ZDir', 'reverse');
+
+# Change the z-limits
+zlim([0,25]);
+
 # Smoothen the plot by interpolation of data
 # Create a variable that will hold the resolution factor
 # The resolution factor is variable depending on your requirement
@@ -24,3 +30,5 @@ inter_matrix = interp2(x,y,matrix,x1,y1,'spline');
 
 # Create surface plot with the interpolated matrix
 surf(x1,y1,inter_matrix);
+set(gca, 'ZDir', 'reverse');
+zlim([0,25]);
