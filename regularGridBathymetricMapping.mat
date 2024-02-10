@@ -1,1 +1,3 @@
-
+# Import the dataset in the workspace as a numerical matrix
+# Rename your data to variable data (for simplicity of this code)
+ data = <Name of your data set>;
