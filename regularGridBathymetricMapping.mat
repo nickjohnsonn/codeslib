@@ -1,3 +1,15 @@
 # Import the dataset in the workspace as a numerical matrix
 # Rename your data to variable data (for simplicity of this code)
  data = <Name of your data set>;
+
+# Create a dummy "x" and "y" variable from the size of your matrix
+[x,y] = meshgrid(1:size(data,2),1:size(data,1));
+
+# Create a surface plot using the dimension variables "x" and "y", and dataset "data"
+surf(x,y,data);
+
+# Reverse the z-axis level
+set(gca,'ZDir','reverse');
+
+# Change the z-limits
+zlim([0,25]);
