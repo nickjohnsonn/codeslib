@@ -16,8 +16,8 @@ zlim([0,25]);
 
 # Create a new dummy "x1" and "y1" dimension variables for the interpolated dataset
 # Increase the grid line interval by using linspace
-# Dimension made is 160x160;
-[x1 , y1] = meshgrid(linspace(1,size(data,2),160), linspace(1,size(data,1),160)); 
+# Dimension made is 80x80;
+[x1 , y1] = meshgrid(linspace(1,size(data,2),80), linspace(1,size(data,1),80)); 
 
 # Save the interpolated data in variable "inter_matrix"
 interp_data = interp2(x,y,data,x1,y1,'spline');
