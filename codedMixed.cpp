@@ -12,7 +12,7 @@ inlet
     #{
         const scalar t = this->db().time().value();
 
-        if (t >= 4) // Fixed value type within the first 4 seconds
+        if (t <= 4) // Fixed value type within the first 4 seconds
         {
           this->valueFraction() = 1; // = 0 if zeroGradient
           this->refvalue() = vector(0,0,0); // 0 units at z+ direction ; = 0, if zeroGradient
